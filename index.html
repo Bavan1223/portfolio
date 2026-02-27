@@ -1,417 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bavan — Creative Portfolio</title>
-  <meta name="description" content="A creative portfolio showcasing skills, projects, and interests." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bavan Kumar S — Portfolio</title>
+    <meta name="description" content="Portfolio of Bavan Kumar S — Full stack python developer & AI enthusiast." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- Animated Background Particles -->
-  <canvas id="particles-canvas"></canvas>
+    <!-- Animated Background Particles -->
+    <canvas id="particles-canvas"></canvas>
 
-  <!-- Cursor Glow -->
-  <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="mainNav">
-    <div class="nav__logo">
-      <span class="nav__logo-icon">⬡</span>
-      <span class="nav__logo-text" id="navName">Portfolio</span>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <div class="nav__logo">
+            <span class="nav__logo-icon">⬡</span>
+            <span class="nav__logo-text">Bavan</span>
+        </div>
+        <ul class="nav__links">
+            <li><a href="#hero" class="nav__link active">Home</a></li>
+            <li><a href="#about" class="nav__link">About</a></li>
+            <li><a href="#skills" class="nav__link">Skills</a></li>
+            <li><a href="#projects" class="nav__link">Projects</a></li>
+            <li><a href="#interests" class="nav__link">Interests</a></li>
+            <li><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+        <button class="nav__menu-btn" id="menuBtn" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu__links">
+            <li><a href="#hero" class="mobile-menu__link">Home</a></li>
+            <li><a href="#about" class="mobile-menu__link">About</a></li>
+            <li><a href="#skills" class="mobile-menu__link">Skills</a></li>
+            <li><a href="#projects" class="mobile-menu__link">Projects</a></li>
+            <li><a href="#interests" class="mobile-menu__link">Interests</a></li>
+            <li><a href="#contact" class="mobile-menu__link">Contact</a></li>
+        </ul>
     </div>
-    <ul class="nav__links">
-      <li><a href="#hero" class="nav__link active">Home</a></li>
-      <li><a href="#about" class="nav__link">About</a></li>
-      <li><a href="#skills" class="nav__link">Skills</a></li>
-      <li><a href="#projects" class="nav__link">Projects</a></li>
-      <li><a href="#interests" class="nav__link">Interests</a></li>
-      <li><a href="#contact" class="nav__link">Contact</a></li>
-    </ul>
-    <button class="nav__menu-btn" id="menuBtn" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-menu__links">
-      <li><a href="#hero" class="mobile-menu__link">Home</a></li>
-      <li><a href="#about" class="mobile-menu__link">About</a></li>
-      <li><a href="#skills" class="mobile-menu__link">Skills</a></li>
-      <li><a href="#projects" class="mobile-menu__link">Projects</a></li>
-      <li><a href="#interests" class="mobile-menu__link">Interests</a></li>
-      <li><a href="#contact" class="mobile-menu__link">Contact</a></li>
-    </ul>
-  </div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero__content">
+            <div class="hero__text">
+                <p class="hero__greeting animate-in">Hello, I'm</p>
+                <h1 class="hero__name animate-in">
+                    <span class="hero__name-first">Bavan</span>
+                    <span class="hero__name-last gradient-text">Kumar S</span>
+                </h1>
+                <p class="hero__tagline animate-in">Full stack python developer, AI enthusiast</p>
+                <p class="hero__description animate-in">
+                    I craft beautiful digital experiences with clean code and creative design.
+                </p>
+                <div class="hero__cta animate-in">
+                    <a href="#projects" class="btn btn--primary">View My Work</a>
+                    <a href="#contact" class="btn btn--outline">Get In Touch</a>
+                </div>
+                <div class="hero__social animate-in">
+                    <a href="https://github.com/Bavan1223" class="hero__social-link" title="GitHub" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bavan-kumar-s-609729310/" class="hero__social-link"
+                        title="LinkedIn" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__visual animate-in">
+                <div class="hero__image-wrapper">
+                    <div class="hero__image-ring"></div>
+                    <div class="hero__image-ring hero__image-ring--2"></div>
+                    <img src="assets/profile-avatar.png" alt="Bavan Kumar S" class="hero__image" />
+                </div>
+                <div class="hero__floating-shapes">
+                    <div class="floating-shape floating-shape--1"></div>
+                    <div class="floating-shape floating-shape--2"></div>
+                    <div class="floating-shape floating-shape--3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="hero__scroll-arrow"></div>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero__content">
-      <div class="hero__text">
-        <p class="hero__greeting animate-in">Hello, I'm</p>
-        <h1 class="hero__name animate-in" id="heroName">
-          <span class="hero__name-first">Your</span>
-          <span class="hero__name-last gradient-text">Name</span>
-        </h1>
-        <p class="hero__tagline animate-in" id="heroTagline">Creative Developer & Designer</p>
-        <p class="hero__description animate-in" id="heroDescription">
-          I craft beautiful digital experiences with clean code and creative design.
-        </p>
-        <div class="hero__cta animate-in">
-          <a href="#projects" class="btn btn--primary">View My Work</a>
-          <a href="#contact" class="btn btn--outline">Get In Touch</a>
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section__title">
+                <span class="section__number">01.</span>
+                About <span class="gradient-text">Me</span>
+            </h2>
+            <div class="about__grid">
+                <div class="about__text glass-card">
+                    <p class="about__bio">
+                        I'm a passionate developer who loves building things for the web. I enjoy creating elegant
+                        solutions to complex problems, transforming ideas into beautiful, functional digital
+                        experiences.
+                    </p>
+                    <div class="about__details">
+                        <div class="about__detail">
+                            <span class="about__detail-label">Name</span>
+                            <span class="about__detail-value">Bavan Kumar S</span>
+                        </div>
+                        <div class="about__detail">
+                            <span class="about__detail-label">Age</span>
+                            <span class="about__detail-value">20</span>
+                        </div>
+                        <div class="about__detail">
+                            <span class="about__detail-label">Location</span>
+                            <span class="about__detail-value">Mangaluru, KA</span>
+                        </div>
+                        <div class="about__detail">
+                            <span class="about__detail-label">Education</span>
+                            <span class="about__detail-value">Computer Science</span>
+                        </div>
+                        <div class="about__detail">
+                            <span class="about__detail-label">Email</span>
+                            <span class="about__detail-value">sbavankumar2005@gmail.com</span>
+                        </div>
+                        <div class="about__detail">
+                            <span class="about__detail-label">Languages</span>
+                            <span class="about__detail-value">English, Tamil, Kannada</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__stats">
+                    <div class="stat-card glass-card">
+                        <span class="stat-card__number" data-target="5">0</span>
+                        <span class="stat-card__label">Projects</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-card__number" data-target="0">0</span>
+                        <span class="stat-card__label">Years Experience</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-card__number" data-target="10">0</span>
+                        <span class="stat-card__label">Technologies</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-card__number" data-target="2">0</span>
+                        <span class="stat-card__label">Cups of Coffee</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero__social animate-in">
-          <a href="#" class="hero__social-link" id="socialGithub" title="GitHub" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="#" class="hero__social-link" id="socialLinkedin" title="LinkedIn" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="#" class="hero__social-link" id="socialTwitter" title="Twitter" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section__title">
+                <span class="section__number">02.</span>
+                My <span class="gradient-text">Skills</span>
+            </h2>
+            <div class="skills__grid">
+                <div class="skill-card reveal">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon">🌐</span>
+                        <span class="skill-card__level">Advanced</span>
+                    </div>
+                    <h3 class="skill-card__name">HTML &amp; CSS</h3>
+                    <div class="skill-card__bar">
+                        <div class="skill-card__progress" data-progress="70"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.1s">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon">⚡</span>
+                        <span class="skill-card__level">Advanced</span>
+                    </div>
+                    <h3 class="skill-card__name">JavaScript</h3>
+                    <div class="skill-card__bar">
+                        <div class="skill-card__progress" data-progress="70"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.2s">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon">⚛️</span>
+                        <span class="skill-card__level">Beginner</span>
+                    </div>
+                    <h3 class="skill-card__name">React</h3>
+                    <div class="skill-card__bar">
+                        <div class="skill-card__progress" data-progress="70"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.3s">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon">�</span>
+                        <span class="skill-card__level">Intermediate</span>
+                    </div>
+                    <h3 class="skill-card__name">Python</h3>
+                    <div class="skill-card__bar">
+                        <div class="skill-card__progress" data-progress="65"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.4s">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon">🟢</span>
+                        <span class="skill-card__level">Advance</span>
+                    </div>
+                    <h3 class="skill-card__name">Node.js</h3>
+                    <div class="skill-card__bar">
+                        <div class="skill-card__progress" data-progress="50"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal" style="transition-delay: 0.5s">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon">🎨</span>
+                        <span class="skill-card__level">Advanced</span>
+                    </div>
+                    <h3 class="skill-card__name">UI/UX Design</h3>
+                    <div class="skill-card__bar">
+                        <div class="skill-card__progress" data-progress="85"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="hero__visual animate-in">
-        <div class="hero__image-wrapper">
-          <div class="hero__image-ring"></div>
-          <div class="hero__image-ring hero__image-ring--2"></div>
-          <img src="assets/profile-avatar.png" alt="Profile Avatar" class="hero__image" id="heroImage" />
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section__title">
+                <span class="section__number">03.</span>
+                Featured <span class="gradient-text">Projects</span>
+            </h2>
+            <div class="projects__grid">
+                <div class="project-card reveal">
+                    <div class="project-card__image-placeholder">🛒</div>
+                    <div class="project-card__body">
+                        <h3 class="project-card__title">E-Commerce Platform</h3>
+                        <p class="project-card__description">A full-stack online store with cart, payments, and admin
+                            dashboard.</p>
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML5</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">FLASK</span>
+                            <span class="project-card__tag">STRIPE</span>
+                            <span class="project-card__tag">VERCEL</span>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="https://divinekart.onrender.com" class="project-card__link" target="_blank">🔗 Live
+                                Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" style="transition-delay: 0.15s">
+                    <div class="project-card__image-placeholder">🚀</div>
+                    <div class="project-card__body">
+                        <h3 class="project-card__title">booksky</h3>
+                        <p class="project-card__description">TODO APP</p>
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">JS</span>
+                        </div>
+                        <div class="project-card__links">
+                            <a href="https://booksky-02de.onrender.com" class="project-card__link" target="_blank">🔗
+                                Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal" style="transition-delay: 0.3s">
+                    <div class="project-card__image-placeholder">🎯</div>
+                    <div class="project-card__body">
+                        <h3 class="project-card__title">Portfolio Website</h3>
+                        <p class="project-card__description">A creative personal portfolio with dynamic content
+                            management.</p>
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero__floating-shapes">
-          <div class="floating-shape floating-shape--1"></div>
-          <div class="floating-shape floating-shape--2"></div>
-          <div class="floating-shape floating-shape--3"></div>
+    </section>
+
+    <!-- Interests Section -->
+    <section class="section interests" id="interests">
+        <div class="container">
+            <h2 class="section__title">
+                <span class="section__number">04.</span>
+                My <span class="gradient-text">Interests</span>
+            </h2>
+            <div class="interests__grid">
+                <div class="interest-card reveal">
+                    <span class="interest-card__icon">💻</span>
+                    <h3 class="interest-card__title">Coding</h3>
+                    <p class="interest-card__description">Building creative solutions</p>
+                </div>
+                <div class="interest-card reveal" style="transition-delay: 0.1s">
+                    <span class="interest-card__icon">🎮</span>
+                    <h3 class="interest-card__title">Gaming</h3>
+                    <p class="interest-card__description">Exploring virtual worlds</p>
+                </div>
+                <div class="interest-card reveal" style="transition-delay: 0.2s">
+                    <span class="interest-card__icon">🎵</span>
+                    <h3 class="interest-card__title">Music</h3>
+                    <p class="interest-card__description">Listening &amp; creating beats</p>
+                </div>
+                <div class="interest-card reveal" style="transition-delay: 0.3s">
+                    <span class="interest-card__icon">📷</span>
+                    <h3 class="interest-card__title">Photography</h3>
+                    <p class="interest-card__description">Capturing moments</p>
+                </div>
+                <div class="interest-card reveal" style="transition-delay: 0.4s">
+                    <span class="interest-card__icon">📚</span>
+                    <h3 class="interest-card__title">Reading</h3>
+                    <p class="interest-card__description">Learning new things</p>
+                </div>
+                <div class="interest-card reveal" style="transition-delay: 0.5s">
+                    <span class="interest-card__icon">✈️</span>
+                    <h3 class="interest-card__title">Travel</h3>
+                    <p class="interest-card__description">Discovering new places</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section__title">
+                <span class="section__number">05.</span>
+                Get In <span class="gradient-text">Touch</span>
+            </h2>
+            <div class="contact__content">
+                <div class="contact__info glass-card">
+                    <h3>Let's work together</h3>
+                    <p>Have a project in mind? Let's create something amazing together.</p>
+                    <div class="contact__methods">
+                        <div class="contact__method">
+                            <span class="contact__method-icon">📧</span>
+                            <span class="contact__method-value">sbavankumar2005@gmail.com</span>
+                        </div>
+                        <div class="contact__method">
+                            <span class="contact__method-icon">📍</span>
+                            <span class="contact__method-value">Mangaluru, KA</span>
+                        </div>
+                        <div class="contact__method">
+                            <span class="contact__method-icon">📱</span>
+                            <span class="contact__method-value">7892907448</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact__form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="formName" placeholder=" " required />
+                        <label for="formName" class="form-label">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" id="formEmail" placeholder=" " required />
+                        <label for="formEmail" class="form-label">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="formSubject" placeholder=" " />
+                        <label for="formSubject" class="form-label">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input form-textarea" id="formMessage" placeholder=" " required></textarea>
+                        <label for="formMessage" class="form-label">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">
+                        <span>Send Message</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn__icon">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__text">
+                    Designed &amp; Built with <span class="footer__heart">❤</span> by Bavan Kumar S
+                </p>
+                <p class="footer__copyright">© 2026 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast__icon">✓</span>
+        <span class="toast__message" id="toastMessage">Changes saved!</span>
     </div>
-    <div class="hero__scroll-indicator">
-      <span>Scroll Down</span>
-      <div class="hero__scroll-arrow"></div>
-    </div>
-  </section>
 
-  <!-- About Section -->
-  <section class="section about" id="about">
-    <div class="container">
-      <h2 class="section__title">
-        <span class="section__number">01.</span>
-        About <span class="gradient-text">Me</span>
-      </h2>
-      <div class="about__grid">
-        <div class="about__text glass-card">
-          <p class="about__bio" id="aboutBio">
-            I'm a passionate developer who loves building things for the web. I enjoy creating elegant solutions to complex problems, transforming ideas into beautiful, functional digital experiences.
-          </p>
-          <div class="about__details">
-            <div class="about__detail">
-              <span class="about__detail-label">Name</span>
-              <span class="about__detail-value" id="aboutName">Your Name</span>
-            </div>
-            <div class="about__detail">
-              <span class="about__detail-label">Age</span>
-              <span class="about__detail-value" id="aboutAge">25</span>
-            </div>
-            <div class="about__detail">
-              <span class="about__detail-label">Location</span>
-              <span class="about__detail-value" id="aboutLocation">Earth</span>
-            </div>
-            <div class="about__detail">
-              <span class="about__detail-label">Education</span>
-              <span class="about__detail-value" id="aboutEducation">Computer Science</span>
-            </div>
-            <div class="about__detail">
-              <span class="about__detail-label">Email</span>
-              <span class="about__detail-value" id="aboutEmail">hello@example.com</span>
-            </div>
-            <div class="about__detail">
-              <span class="about__detail-label">Languages</span>
-              <span class="about__detail-value" id="aboutLanguages">English, Tamil</span>
-            </div>
-          </div>
-        </div>
-        <div class="about__stats">
-          <div class="stat-card glass-card">
-            <span class="stat-card__number" data-target="5" id="statProjects">0</span>
-            <span class="stat-card__label">Projects</span>
-          </div>
-          <div class="stat-card glass-card">
-            <span class="stat-card__number" data-target="3" id="statYears">0</span>
-            <span class="stat-card__label">Years Experience</span>
-          </div>
-          <div class="stat-card glass-card">
-            <span class="stat-card__number" data-target="10" id="statTech">0</span>
-            <span class="stat-card__label">Technologies</span>
-          </div>
-          <div class="stat-card glass-card">
-            <span class="stat-card__number" data-target="100" id="statCoffee">0</span>
-            <span class="stat-card__label">Cups of Coffee</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <h2 class="section__title">
-        <span class="section__number">02.</span>
-        My <span class="gradient-text">Skills</span>
-      </h2>
-      <div class="skills__grid" id="skillsGrid">
-        <!-- Skills will be populated by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <h2 class="section__title">
-        <span class="section__number">03.</span>
-        Featured <span class="gradient-text">Projects</span>
-      </h2>
-      <div class="projects__grid" id="projectsGrid">
-        <!-- Projects will be populated by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Interests Section -->
-  <section class="section interests" id="interests">
-    <div class="container">
-      <h2 class="section__title">
-        <span class="section__number">04.</span>
-        My <span class="gradient-text">Interests</span>
-      </h2>
-      <div class="interests__grid" id="interestsGrid">
-        <!-- Interests will be populated by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <h2 class="section__title">
-        <span class="section__number">05.</span>
-        Get In <span class="gradient-text">Touch</span>
-      </h2>
-      <div class="contact__content">
-        <div class="contact__info glass-card">
-          <h3>Let's work together</h3>
-          <p id="contactMessage">Have a project in mind? Let's create something amazing together.</p>
-          <div class="contact__methods">
-            <div class="contact__method">
-              <span class="contact__method-icon">📧</span>
-              <span class="contact__method-value" id="contactEmail">hello@example.com</span>
-            </div>
-            <div class="contact__method">
-              <span class="contact__method-icon">📍</span>
-              <span class="contact__method-value" id="contactLocation">Earth</span>
-            </div>
-            <div class="contact__method">
-              <span class="contact__method-icon">📱</span>
-              <span class="contact__method-value" id="contactPhone">+1 234 567 890</span>
-            </div>
-          </div>
-        </div>
-        <form class="contact__form glass-card" id="contactForm">
-          <div class="form-group">
-            <input type="text" class="form-input" id="formName" placeholder=" " required />
-            <label for="formName" class="form-label">Your Name</label>
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-input" id="formEmail" placeholder=" " required />
-            <label for="formEmail" class="form-label">Your Email</label>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-input" id="formSubject" placeholder=" " />
-            <label for="formSubject" class="form-label">Subject</label>
-          </div>
-          <div class="form-group">
-            <textarea class="form-input form-textarea" id="formMessage" placeholder=" " required></textarea>
-            <label for="formMessage" class="form-label">Your Message</label>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">
-            <span>Send Message</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn__icon"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__content">
-        <p class="footer__text">
-          Designed & Built with <span class="footer__heart">❤</span> by <span id="footerName">Your Name</span>
-        </p>
-        <p class="footer__copyright">© 2026 All Rights Reserved</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Edit/Config Modal -->
-  <button class="config-btn" id="configBtn" title="Edit Portfolio Details">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-  </button>
-
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="configModal">
-      <div class="modal__header">
-        <h2 class="modal__title">✏️ Edit Portfolio Details</h2>
-        <button class="modal__close" id="modalClose">&times;</button>
-      </div>
-      <div class="modal__body">
-        <div class="modal__tabs">
-          <button class="modal__tab active" data-tab="personal">Personal</button>
-          <button class="modal__tab" data-tab="skills">Skills</button>
-          <button class="modal__tab" data-tab="projects">Projects</button>
-          <button class="modal__tab" data-tab="interests">Interests</button>
-          <button class="modal__tab" data-tab="contact">Contact</button>
-        </div>
-
-        <!-- Personal Tab -->
-        <div class="modal__tab-content active" id="tab-personal">
-          <div class="form-group">
-            <label class="modal__label">Full Name</label>
-            <input type="text" class="modal__input" id="editName" placeholder="John Doe" />
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Tagline / Title</label>
-            <input type="text" class="modal__input" id="editTagline" placeholder="Creative Developer & Designer" />
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Short Description</label>
-            <textarea class="modal__input modal__textarea" id="editDescription" placeholder="I craft beautiful digital experiences..."></textarea>
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Bio (About Section)</label>
-            <textarea class="modal__input modal__textarea" id="editBio" placeholder="Tell your story..."></textarea>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="modal__label">Age</label>
-              <input type="text" class="modal__input" id="editAge" placeholder="25" />
-            </div>
-            <div class="form-group">
-              <label class="modal__label">Location</label>
-              <input type="text" class="modal__input" id="editLocation" placeholder="New York, USA" />
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="modal__label">Education</label>
-              <input type="text" class="modal__input" id="editEducation" placeholder="B.Sc Computer Science" />
-            </div>
-            <div class="form-group">
-              <label class="modal__label">Languages</label>
-              <input type="text" class="modal__input" id="editLanguages" placeholder="English, Tamil" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Profile Image URL</label>
-            <input type="text" class="modal__input" id="editImage" placeholder="assets/profile-avatar.png or https://..." />
-          </div>
-          <h3 class="modal__subtitle">Social Links</h3>
-          <div class="form-group">
-            <label class="modal__label">GitHub URL</label>
-            <input type="text" class="modal__input" id="editGithub" placeholder="https://github.com/username" />
-          </div>
-          <div class="form-group">
-            <label class="modal__label">LinkedIn URL</label>
-            <input type="text" class="modal__input" id="editLinkedin" placeholder="https://linkedin.com/in/username" />
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Twitter / X URL</label>
-            <input type="text" class="modal__input" id="editTwitter" placeholder="https://twitter.com/username" />
-          </div>
-          <h3 class="modal__subtitle">Stats</h3>
-          <div class="form-row form-row--4">
-            <div class="form-group">
-              <label class="modal__label">Projects</label>
-              <input type="number" class="modal__input" id="editStatProjects" placeholder="5" />
-            </div>
-            <div class="form-group">
-              <label class="modal__label">Years Exp</label>
-              <input type="number" class="modal__input" id="editStatYears" placeholder="3" />
-            </div>
-            <div class="form-group">
-              <label class="modal__label">Technologies</label>
-              <input type="number" class="modal__input" id="editStatTech" placeholder="10" />
-            </div>
-            <div class="form-group">
-              <label class="modal__label">Coffees ☕</label>
-              <input type="number" class="modal__input" id="editStatCoffee" placeholder="100" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Skills Tab -->
-        <div class="modal__tab-content" id="tab-skills">
-          <p class="modal__hint">Add your skills with proficiency levels.</p>
-          <div id="skillsEditor">
-            <!-- Dynamic skill entries -->
-          </div>
-          <button class="btn btn--small btn--outline" id="addSkillBtn">+ Add Skill</button>
-        </div>
-
-        <!-- Projects Tab -->
-        <div class="modal__tab-content" id="tab-projects">
-          <p class="modal__hint">Showcase your best projects.</p>
-          <div id="projectsEditor">
-            <!-- Dynamic project entries -->
-          </div>
-          <button class="btn btn--small btn--outline" id="addProjectBtn">+ Add Project</button>
-        </div>
-
-        <!-- Interests Tab -->
-        <div class="modal__tab-content" id="tab-interests">
-          <p class="modal__hint">Share your hobbies and passions.</p>
-          <div id="interestsEditor">
-            <!-- Dynamic interest entries -->
-          </div>
-          <button class="btn btn--small btn--outline" id="addInterestBtn">+ Add Interest</button>
-        </div>
-
-        <!-- Contact Tab -->
-        <div class="modal__tab-content" id="tab-contact">
-          <div class="form-group">
-            <label class="modal__label">Email</label>
-            <input type="email" class="modal__input" id="editContactEmail" placeholder="you@example.com" />
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Phone</label>
-            <input type="text" class="modal__input" id="editContactPhone" placeholder="+1 234 567 890" />
-          </div>
-          <div class="form-group">
-            <label class="modal__label">Contact Message</label>
-            <textarea class="modal__input modal__textarea" id="editContactMessage" placeholder="Have a project in mind?..."></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="modal__footer">
-        <button class="btn btn--outline" id="resetBtn">Reset to Default</button>
-        <button class="btn btn--primary" id="saveBtn">💾 Save Changes</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div class="toast" id="toast">
-    <span class="toast__icon">✓</span>
-    <span class="toast__message" id="toastMessage">Changes saved!</span>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
