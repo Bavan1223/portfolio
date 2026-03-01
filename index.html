@@ -89,7 +89,7 @@
                 <div class="hero__image-wrapper">
                     <div class="hero__image-ring"></div>
                     <div class="hero__image-ring hero__image-ring--2"></div>
-                    <img src="assets/profile-avatar.png" alt="Bavan Kumar S" class="hero__image" />
+                    <img src="assets/bavan-cutout.png" alt="Bavan Kumar S" class="hero__image" />
                 </div>
                 <div class="hero__floating-shapes">
                     <div class="floating-shape floating-shape--1"></div>
@@ -348,14 +348,15 @@
                 <span class="section__number">05.</span>
                 Get In <span class="gradient-text">Touch</span>
             </h2>
-            <div class="contact__content">
+            <div class="contact__content" style="grid-template-columns: 1fr; max-width: 600px; margin: 0 auto;">
                 <div class="contact__info glass-card">
                     <h3>Let's work together</h3>
                     <p>Have a project in mind? Let's create something amazing together.</p>
                     <div class="contact__methods">
                         <div class="contact__method">
                             <span class="contact__method-icon">📧</span>
-                            <span class="contact__method-value">sbavankumar2005@gmail.com</span>
+                            <a href="mailto:sbavankumar2005@gmail.com" class="contact__method-value"
+                                style="color: var(--text-secondary); text-decoration: none;">sbavankumar2005@gmail.com</a>
                         </div>
                         <div class="contact__method">
                             <span class="contact__method-icon">📍</span>
@@ -363,36 +364,17 @@
                         </div>
                         <div class="contact__method">
                             <span class="contact__method-icon">📱</span>
-                            <span class="contact__method-value">7892907448</span>
+                            <a href="https://wa.me/917892907448" target="_blank" class="contact__method-value"
+                                style="color: var(--text-secondary); text-decoration: none;">7892907448</a>
                         </div>
                     </div>
+                    <div style="margin-top: 32px; display: flex; gap: 12px;">
+                        <a href="https://wa.me/917892907448" target="_blank" class="btn btn--primary">💬 WhatsApp
+                            Me</a>
+                        <a href="mailto:sbavankumar2005@gmail.com" class="btn btn--outline">📧 Email Me</a>
+                    </div>
                 </div>
-                <form class="contact__form glass-card" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="formName" placeholder=" " required />
-                        <label for="formName" class="form-label">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-input" id="formEmail" placeholder=" " required />
-                        <label for="formEmail" class="form-label">Your Email</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="formSubject" placeholder=" " />
-                        <label for="formSubject" class="form-label">Subject</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-input form-textarea" id="formMessage" placeholder=" " required></textarea>
-                        <label for="formMessage" class="form-label">Your Message</label>
-                    </div>
-                    <button type="submit" class="btn btn--primary btn--full">
-                        <span>Send Message</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn__icon">
-                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                        </svg>
-                    </button>
-                </form>
             </div>
-        </div>
     </section>
 
     <!-- Footer -->

@@ -458,8 +458,9 @@ body {
 .hero__visual {
     flex: 0 0 auto;
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: 500px;
+    height: 600px;
+    overflow: visible;
 }
 
 .hero__image-wrapper {
@@ -467,24 +468,84 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 }
 
+/* Profile image - DOUBLED size with soft edges */
 .hero__image {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
+    width: 720px;
+    height: auto;
+    max-height: 700px;
     object-fit: cover;
-    position: relative;
+    object-position: top center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
-    border: 3px solid rgba(124, 58, 237, 0.3);
+    filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.5));
+    /* Soft feathered edges */
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 40%, black 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 80% at 50% 40%, black 50%, transparent 100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
 }
 
+/* Glow effect behind the person */
+.hero__image-wrapper::before {
+    content: '';
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.3), transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+/* Hover effect for 3D pop */
+.hero__visual:hover .hero__image {
+    transform: translateX(-50%) translateY(-15px) scale(1.15);
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.7));
+}
+
+/* Rings - also half circles */
 .hero__image-ring {
     position: absolute;
-    width: 320px;
-    height: 320px;
+    width: 480px;
+    height: 240px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    z-index: 0;
+    animation: none;
+}
+
+.hero__image-ring::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 480px;
+    height: 480px;
     border-radius: 50%;
     border: 1px solid rgba(124, 58, 237, 0.15);
     animation: ring-rotate 20s linear infinite;
@@ -493,18 +554,24 @@ body {
 .hero__image-ring::before {
     content: '';
     position: absolute;
-    top: -4px;
+    bottom: 0;
     left: 50%;
     width: 8px;
     height: 8px;
     background: var(--accent-1);
     border-radius: 50%;
     box-shadow: 0 0 15px var(--accent-1);
+    z-index: 1;
 }
 
 .hero__image-ring--2 {
-    width: 370px;
-    height: 370px;
+    width: 520px;
+    height: 260px;
+}
+
+.hero__image-ring--2::after {
+    width: 520px;
+    height: 520px;
     animation-direction: reverse;
     animation-duration: 25s;
     border-color: rgba(6, 182, 212, 0.1);
@@ -517,11 +584,11 @@ body {
 
 @keyframes ring-rotate {
     from {
-        transform: rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
 
     to {
-        transform: rotate(360deg);
+        transform: translateX(-50%) rotate(360deg);
     }
 }
 
@@ -1171,23 +1238,32 @@ body {
     }
 
     .hero__visual {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 480px;
     }
 
     .hero__image {
-        width: 200px;
-        height: 200px;
+        width: 550px;
     }
 
     .hero__image-ring {
-        width: 260px;
-        height: 260px;
+        width: 390px;
+        height: 195px;
+    }
+
+    .hero__image-ring::after {
+        width: 390px;
+        height: 390px;
     }
 
     .hero__image-ring--2 {
-        width: 300px;
-        height: 300px;
+        width: 430px;
+        height: 215px;
+    }
+
+    .hero__image-ring--2::after {
+        width: 430px;
+        height: 430px;
     }
 
     .about__grid {
@@ -1209,23 +1285,32 @@ body {
     }
 
     .hero__visual {
-        width: 250px;
-        height: 250px;
+        width: 320px;
+        height: 400px;
     }
 
     .hero__image {
-        width: 170px;
-        height: 170px;
+        width: 440px;
     }
 
     .hero__image-ring {
-        width: 220px;
-        height: 220px;
+        width: 320px;
+        height: 160px;
+    }
+
+    .hero__image-ring::after {
+        width: 320px;
+        height: 320px;
     }
 
     .hero__image-ring--2 {
-        width: 250px;
-        height: 250px;
+        width: 350px;
+        height: 175px;
+    }
+
+    .hero__image-ring--2::after {
+        width: 350px;
+        height: 350px;
     }
 
     .hero__cta {

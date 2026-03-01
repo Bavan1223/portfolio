@@ -1,13 +1,14 @@
 /* ==========================================
-   Portfolio — Main Script (Static Version)
+   Portfolio — Main Script (Optimized)
    ========================================== */
 
-// ---- Particles Background ----
+// ---- Particles Background (Optimized) ----
 function initParticles() {
   const canvas = document.getElementById('particles-canvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
-  const PARTICLE_COUNT = 60;
+  const PARTICLE_COUNT = 40; // Reduced for smoother performance
+  let animId;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -31,17 +32,21 @@ function initParticles() {
     particles = Array.from({ length: PARTICLE_COUNT }, createParticle);
   }
 
+  // Optimized: Only check nearby particles using grid approach
   function drawConnections() {
+    const maxDist = 150;
+    const maxDistSq = maxDist * maxDist;
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 150) {
+        const distSq = dx * dx + dy * dy;
+        if (distSq < maxDistSq) {
+          const alpha = 0.05 * (1 - Math.sqrt(distSq) / maxDist);
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(124, 58, 237, ${0.05 * (1 - dist / 150)})`;
+          ctx.strokeStyle = `rgba(124, 58, 237, ${alpha})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -52,7 +57,8 @@ function initParticles() {
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    particles.forEach(p => {
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
       p.x += p.vx;
       p.y += p.vy;
 
@@ -63,15 +69,30 @@ function initParticles() {
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${p.color}, ${p.alpha})`;
       ctx.fill();
-    });
+    }
 
     drawConnections();
-    requestAnimationFrame(animate);
+    animId = requestAnimationFrame(animate);
   }
 
-  window.addEventListener('resize', resize);
+  // Debounced resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  }, { passive: true });
+
   init();
   animate();
+
+  // Pause particles when tab is not visible
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animId);
+    } else {
+      animId = requestAnimationFrame(animate);
+    }
+  });
 }
 
 // ---- Intersection Observer (reveal & progress bars) ----
@@ -125,29 +146,35 @@ function animateCounters() {
   counters.forEach(c => observer.observe(c));
 }
 
-// ---- Navigation ----
+// ---- Navigation (Optimized with single scroll listener) ----
 function initNav() {
   const nav = document.getElementById('mainNav');
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const navLinks = document.querySelectorAll('.nav__link');
-  const mobileLinks = document.querySelectorAll('.mobile-menu__link');
-
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
   const sections = document.querySelectorAll('.section, .hero');
+
+  // Single optimized scroll handler with throttle
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const top = section.offsetTop - 120;
-      if (window.scrollY >= top) current = '#' + section.id;
-    });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === current);
-    });
-  });
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        nav.classList.toggle('scrolled', scrollY > 50);
+
+        let current = '';
+        sections.forEach(section => {
+          if (scrollY >= section.offsetTop - 120) current = '#' + section.id;
+        });
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === current);
+        });
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('open');
@@ -155,7 +182,7 @@ function initNav() {
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
 
-  mobileLinks.forEach(link => {
+  document.querySelectorAll('.mobile-menu__link').forEach(link => {
     link.addEventListener('click', () => {
       menuBtn.classList.remove('open');
       mobileMenu.classList.remove('open');
@@ -164,39 +191,31 @@ function initNav() {
   });
 }
 
-// ---- Cursor Glow ----
+// ---- Cursor Glow (Optimized with RAF) ----
 function initCursorGlow() {
   const glow = document.getElementById('cursorGlow');
+
+  // Skip on touch devices
+  if ('ontouchstart' in window) {
+    glow.style.display = 'none';
+    return;
+  }
+
   let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-  });
+  }, { passive: true });
 
   function animate() {
     glowX += (mouseX - glowX) * 0.08;
     glowY += (mouseY - glowY) * 0.08;
-    glow.style.left = glowX + 'px';
-    glow.style.top = glowY + 'px';
+    glow.style.transform = `translate(${glowX - 150}px, ${glowY - 150}px)`;
     requestAnimationFrame(animate);
   }
 
   animate();
-
-  if ('ontouchstart' in window) {
-    glow.style.display = 'none';
-  }
-}
-
-// ---- Contact Form ----
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    showToast('Message sent successfully! (Demo)');
-    form.reset();
-  });
 }
 
 // ---- Toast ----
@@ -212,7 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   initNav();
   initCursorGlow();
-  initContactForm();
   animateCounters();
 
   document.querySelectorAll('.section').forEach(section => {
